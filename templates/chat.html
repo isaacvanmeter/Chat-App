@@ -1,0 +1,32 @@
+<!-- templates/chat.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h2>Welcome, {{ username }}!</h2>
+
+    <form action="/chat" method="post">
+        <input type="submit" name="load_messages" value="Load Messages">
+    </form>
+
+    <div id="messages">
+        {% for message in messages %}
+            <p><strong>{{ message.sender_full_name }} ({{ message.sender_username }})</strong> to <strong>{{ message.receiver_full_name }} ({{ message.receiver_username }})</strong>: {{ message.message_text }} at {{ message.formatted_time }}</p>
+        {% endfor %}
+    </div>
+
+    <form action="/send_message" method="post">
+        To:
+        <select name="receiver_username">
+            {% for user in users %}
+            <option value="{{ user.username }}">{{ user.full_name }} ({{ user.username }})</option>
+            {% endfor %}
+        </select>
+        Message: <input type="text" name="message_text" required>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>

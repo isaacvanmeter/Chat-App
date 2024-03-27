@@ -1,0 +1,17 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <form action="/" method="post">
+        Username: <input type="text" name="username">
+        <input type="submit" value="Login">
+    </form>
+
+    <!-- Link to the sign-up page -->
+    <button onclick="window.location.href='/signup';">Sign Up</button>
+</body>
+</html>

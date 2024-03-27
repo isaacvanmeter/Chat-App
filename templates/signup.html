@@ -1,0 +1,16 @@
+<!-- templates/signup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <form action="/signup" method="post">
+        Full Name: <input type="text" name="full_name" required><br>
+        Username: <input type="text" name="username" required><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
